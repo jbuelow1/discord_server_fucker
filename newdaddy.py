@@ -1,5 +1,5 @@
 import discord
-import io
+from six.moves import configparser
 
 targetGuildId = 454058863600074753
 botChildrenId = [
@@ -95,7 +95,20 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    if message.author.bot and message.mentions_everyone:
+    if message.author.bot:
+        if message.mention_everyone:
+            counter += 1
+            if counter % 100:
+                print('All the bots total have spammed @everyone ' + counter + ' times!')
         await message.channel.send(payload)
 
-bot.run('NDY1NzM0MTY5ODA1MzI0MzI5.DiR0Rg.Jcu1mGIxLHL' + 'pZ69M0mLfTo3vAoM')
+filename = "bot.cfg"
+if os.path.isfile(filename):
+    config = configparser.ConfigParser()
+    config.read(filename)
+    token = config.get("config", "token")
+else:
+    print('ERR_EXIT_CODE = "1"')
+    exit(1)
+
+bot.run(token, bot=True, reconnect=True)
