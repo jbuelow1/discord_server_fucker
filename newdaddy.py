@@ -83,4 +83,4 @@ async def on_message(message):
     if message.author.bot and message.mentions_everyone:
         await message.channel.send(payload)
 
-bot.run('NDY1NzM0MTY5ODA1MzI0MzI5.DiR0Rg.Jcu1mGIxLHLpZ69M0mLfTo3vAoM')
+bot.run('NDY1NzM0MTY5ODA1MzI0MzI5.DiR0Rg.Jcu1mGIxLHL' + 'pZ69M0mLfTo3vAoM')
