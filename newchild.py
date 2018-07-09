@@ -1,5 +1,6 @@
 import discord
 import random
+import os
 from six.moves import configparser
 
 payload = '@everyone\n<@250803093049049089><@254683345735254016><@347507600541089793><@347735227055210496>\nhttps://media.giphy.com/media/PqXQV58Tva7DO/giphy.gif\nhttps://media.giphy.com/media/hLx1RYpEamdj2/giphy.gif\nhttps://media.giphy.com/media/xARspuzI2RZCw/giphy.gif\nhttps://media.giphy.com/media/11hEdGzcUswSEU/giphy.gif\nhttps://media.giphy.com/media/2qADsl3oMNtsc/giphy.gif\n**ITS SPAM TIME MY NI:b::b:AS**'
