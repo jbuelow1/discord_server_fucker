@@ -16,7 +16,7 @@ async def on_ready():
 
     print('Setting hidden username and icon...')
     file = open('hidden.png', 'rb')
-    await bot.user.edit(username='🏴🏴', avatar=file.read())
+    await bot.user.edit(username='🏴 ', avatar=file.read())
 
     print('Setting status to invisible...')
     await bot.change_presence(status=discord.Status.invisible)
