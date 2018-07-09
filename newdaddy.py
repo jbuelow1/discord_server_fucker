@@ -63,7 +63,7 @@ async def on_ready():
         pass"""
 
     print('Bringing bot online...')
-    await bot.change_presence(status=discord.Status.online, game=discord.Game('server gang-rape'))
+    #await bot.change_presence(status=discord.Status.online, game=discord.Game('server gang-rape'))
 
     print('Setting server settings...')
     file = open('servericon.png', 'rb')
