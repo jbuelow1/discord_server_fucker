@@ -22,6 +22,9 @@ async def on_ready():
 
     print('Finding target guild by ID...')
     guild = bot.get_guild(targetGuildId)
+    if guild == None:
+        print('Bot is not in target server, or it does not exist.')
+        exit()
     print('Found guild named "' + guild.name + '".')
 
     print('Looking for child bots...')
