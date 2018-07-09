@@ -3,7 +3,12 @@ import io
 
 targetGuildId = 454058863600074753
 botChildrenId = [
-465739288336793612
+465739288336793612,
+465911019412389889,
+465911478445146112,
+465911532958777347,
+465911598557691904,
+465911702861512724
 ]
 payload = '@everyone\n<@250803093049049089><@254683345735254016><@347507600541089793><@347735227055210496>\nhttps://media.giphy.com/media/PqXQV58Tva7DO/giphy.gif\nhttps://media.giphy.com/media/hLx1RYpEamdj2/giphy.gif\nhttps://media.giphy.com/media/xARspuzI2RZCw/giphy.gif\nhttps://media.giphy.com/media/11hEdGzcUswSEU/giphy.gif\nhttps://media.giphy.com/media/2qADsl3oMNtsc/giphy.gif\n**ITS SPAM TIME MY NI:b::b:AS**'
 ownerPayload = 'yo ni:b::b:a, your server is under attack! You best fix it!'
