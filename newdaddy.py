@@ -57,7 +57,10 @@ async def on_ready():
 
     print('Changing name and icon...')
     file = open('daddy.png', 'rb')
-    await bot.user.edit(username='Daddy Squidward', avatar=file.read())
+    try:
+        await bot.user.edit(username='Daddy Squidward', avatar=file.read())
+    except:
+        pass
 
     print('Bringing bot online...')
     await bot.change_presence(status=discord.Status.online, activity=discord.Game('server gang-rape'))
