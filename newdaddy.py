@@ -40,7 +40,7 @@ async def on_ready():
 
     print('Hiding child bots...')
     for channel in guild.channels:
-        for childBot in BotChildren:
+        for childBot in botChildren:
             await channel.set_permissions(childBot, read_messages=False)
 
     print('===== Ready for raid. Say "RAID" as Yamcha#4224 to rape this server. =====')
